@@ -12,8 +12,11 @@ branch_name = os.environ.get("BRANCH_NAME")
 commit_dir = os.environ.get("COMMIT_DIR")
 
 def hello(event, context):
-    md_file = event['post']['body_md']
-    md_name = str(datetime.date.today()) + "-" + event['post']['name']
+    esa_data = json.loads(event['body'])
+    print("POST DATA: " + esa_data)
+
+    md_file = esa_data['post']['body_md']
+    md_name = str(datetime.date.today()) + "-" + esa_data['post']['name']
 
     # Repository Info
     repo = Github(token).get_repo(repository)
