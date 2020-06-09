@@ -23,6 +23,11 @@ service: esa-source-lambda
 provider:
   name: aws
   runtime: python3.8
+  environment:
+    GITHUB_TOKEN: ${env:GITHUB_TOKEN}
+    GITHUB_REPOSITORY: ${env:GITHUB_REPOSITORY}
+    BRANCH_NAME: ${env:BRANCH_NAME}
+    COMMIT_DIR: ${env:COMMIT_DIR}
 
 # you can overwrite defaults here
 #  stage: dev
@@ -66,7 +71,7 @@ functions:
     events:
       - http:
           path: /
-          method: get
+          method: post
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
@@ -95,6 +100,13 @@ functions:
 #          conditions:
 #            host: example.com
 #            path: /hello
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
 
 #    Define function environment variables here
 #    environment:
