@@ -13,7 +13,7 @@ commit_dir = os.environ.get("COMMIT_DIR")
 
 def hello(event, context):
     esa_data = json.loads(event['body'])
-    print("POST DATA: " + esa_data)
+    print(esa_data)
 
     md_file = esa_data['post']['body_md']
     md_name = str(datetime.date.today()) + "-" + esa_data['post']['name']
