@@ -69,7 +69,7 @@ def update_file(esa_data):
     refs_sha = refs.object.sha
 
     # Commit file (Create)
-    element = InputGitTreeElement(find_file_name(repo, esa_data["post"]["number"]), '100644', 'base64', md_file)
+    element = InputGitTreeElement(commit_dir + "/" + find_file_name(repo, esa_data["post"]["number"]), '100644', 'base64', md_file)
 
     # 最新版のCommit情報を取得
     commit = repo.get_commit(refs_sha).commit
