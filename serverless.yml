@@ -7,6 +7,7 @@ provider:
     GITHUB_REPOSITORY: ${env:GITHUB_REPOSITORY}
     BRANCH_NAME: ${env:BRANCH_NAME}
     COMMIT_DIR: ${env:COMMIT_DIR}
+    ESA_SECRET_KEY: ${env:ESA_SECRET_KEY}
 
 functions:
   main:
