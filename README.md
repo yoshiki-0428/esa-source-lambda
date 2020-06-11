@@ -1,6 +1,6 @@
 # esa-source-lambda
 
-Esa.ioのWebhookを利用して特定GitHubリポジトリに自動コミットするLambdaファンクションです。
+Esa.ioのWebHookを利用して特定GitHubリポジトリに自動コミットするLambdaファンクションです。
 
 GatsbyなどのCMSにEsaの記事作成をトリガーにPushすることが可能です。
 
@@ -134,6 +134,17 @@ endpoints:
 
 Webhookで指定したディレクトリのファイルをShip It!してみましょう。デフォルトでwipの場合は「何もしない」設定になっています。
 
+## 複数設定する場合
+
+複数ブログや複数コンテンツを別のリポジトリにPushしたい場合はもう一度functionをCreateすればOKです！
+
+```
+serverless create -u https://github.com/yoshiki-0428/esa-source-lambda -n trip-blog
+export GITHUB_REPOSITORY={your-owner-name}/{your-repository-name}
+export COMMIT_DIR=src/content
+export FUNC_NAME=trip
+cd trip-blog && serverless deploy
+```
 
 # 最後に
 
