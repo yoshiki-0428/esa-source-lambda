@@ -35,7 +35,7 @@ def main(event, context):
     md_text = esa_data['post']['body_md']
     if esa_data['kind'] == "post_create":
         print("post_create")
-        md_name = str(datetime.date.today()) + "--" + str(esa_data['post']['number']) + ".md"
+        md_name = create_today_filename(esa_data['post']['number'])
         commit_file(md_name, md_text)
 
     elif esa_data['kind'] == "post_update":
@@ -87,8 +87,12 @@ def find_file_name(esa_number):
         split_content_name = content_name.split("--")
         if str(esa_number) in split_content_name[len(split_content_name) - 1]:
             return content_name
-    print("File is None")
-    return ""
+    print("File is None cause create file at today")
+    return create_today_filename(esa_number)
+
+
+def create_today_filename(number):
+    return str(datetime.date.today()) + "--" + str(number) + ".md"
 
 
 # signature check
