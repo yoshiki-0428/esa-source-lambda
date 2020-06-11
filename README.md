@@ -14,8 +14,10 @@ GatsbyなどのCMSにEsaの記事作成をトリガーにPushすることが可�
     - post_update: YYYY-MM-DD--{esa_number}.md を更新
     - post_archive: 未対応
     - post_delete: 未対応
+- 対象Repository
+    - GitHubのみ
 
-# Architect
+# Architecture
 
 ![](https://img.esa.io/uploads/production/attachments/15569/2020/06/11/82539/c66b1d15-c5ae-41f5-9e09-df46eee8febc.png)
 
@@ -71,11 +73,12 @@ Esa.ioのWebHookの際に認証するEsa-Signatureを設定（EsaのWebHook Gene
 
 [詳細](https://docs.esa.io/posts/37#X-Esa-Signature)
 
-![](https://img.esa.io/uploads/production/attachments/15569/2020/06/11/82539/2c32f3b6-ec46-4572-86f8-efd099a27ac4.png)
-
 ```
 export ESA_SECRET_KEY=my_secret_key
 ```
+
+![](https://img.esa.io/uploads/production/attachments/15569/2020/06/11/82539/2c32f3b6-ec46-4572-86f8-efd099a27ac4.png)
+
 
 ファンクション名を設定
 
