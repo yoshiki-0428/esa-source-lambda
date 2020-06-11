@@ -31,6 +31,7 @@ npm install -g serverless
 ### 本リポジトリのLambda をインストール
 ```
 serverless create -u https://github.com/yoshiki-0428/esa-source-lambda -n {your-name-func:tech-blog}
+cd tech-blog && npm install
 ```
 
 ## 環境変数をセット
