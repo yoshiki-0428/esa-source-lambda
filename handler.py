@@ -24,7 +24,7 @@ def main(event, context):
             "statusCode": 401,
             "body": "Unauthorized request"
         }
-    elif 'template' in esa_data['post']['name']:
+    elif 'Templates' in esa_data['post']['name']:
         print("Do not need Commit cause type is template")
         return {
             "statusCode": 204,
